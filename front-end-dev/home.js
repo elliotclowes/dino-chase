@@ -5,6 +5,21 @@ window.addEventListener('load', async () => {
 });
 
 
+let countdown = 30;
+const countdownElement = document.getElementById('countdown');
+
+const interval = setInterval(() => {
+  countdown--;
+  countdownElement.innerText = `Wait ` + countdown + ` seconds.`;
+  
+  if(countdown <= 0) {
+    clearInterval(interval);
+    countdownElement.innerText = 'Dino Chase is now ready! :)';
+  }
+}, 1000);
+
+
+
 document.querySelector('#userInput').addEventListener("submit", async event => {
   event.preventDefault();
   let userInputName = document.querySelector('#username').value;
